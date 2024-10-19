@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skills</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Roboto Mono', monospace;
+            background: linear-gradient(to bottom, #001f3f, #012f5d);
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .navbar {
+            width: 100%;
+            background-color: rgba(51, 51, 51, 0.1);
+            overflow: hidden;
+            position: fixed;
+            top: 0;
+            z-index: 5;
+        }
+        .navbar a {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        .content {
+            max-width: 800px;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+            margin-top: 50px; /* Adjust for navbar height */
+        }
+        .content ul {
+            list-style-type: none;
+            display: inline-block;
+            text-align: left;
+            padding: 0;
+        }
+        .content li {
+            position: relative;
+            cursor: pointer;
+        }
+        .content li:hover::after {
+            content: attr(data-proficiency);
+            position: absolute;
+            right: -60px;
+            top: 0;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+        .ascii-art {
+            font-family: monospace;
+            white-space: pre;
+            line-height: 1;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            font-size: 20px;
+            z-index: 3;
+            margin-bottom: -30px;
+        }
+        .background-text {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0.6;
+            color: #00162c;
+            font-size: 12px;
+            overflow: hidden;
+        }
+        .mountain-peak { color: #e6c998; }
+        .mountain-side { color: #d1a65f; }
+        .mountain-base { color: #b08542; }
+        .ground { color: #c2b280; }
+        p {
+            position: relative;
+            z-index: 2;
+        }
+        .ascii-sun {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            font-family: monospace;
+            white-space: pre;
+            line-height: 1;
+            color: #8c7d9d;
+            opacity: 0.5;
+            font-size: 16px;
+            z-index: 4;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Me</a>
+        <a href="projects.html">Projects</a>
+        <a href="skills.html">Skills</a>
+        <a href="https://github.com/rtopr">Github</a>
+        <a href="https://www.linkedin.com/in/reshat-toprak-94b424271/">LinkedIn</a>
+        <a href="mailto:rtoprak@ucsc.edu">Email</a>
+    </div>
+    <div class="background-text"></div>
+    <div class="content">
+        <h1>Skills</h1>
+        <p>Hover over a skill to see the self-assessed proficiency percentage.</p>
+        <h2>Programming Languages</h2>
+        <ul>
+            <li data-proficiency="70%">Python</li>
+            <li data-proficiency="65%">HTML</li>
+            <li data-proficiency="60%">CSS</li>
+            <li data-proficiency="60%">JavaScript</li>
+            <li data-proficiency="65%">C</li>
+            <li data-proficiency="60%">C++</li>
+            
+        </ul>
+        <h2>Frameworks</h2>
+        <ul>
+            <li data-proficiency="70%">React.js</li>
+            <li data-proficiency="65%">Node.js</li>
+        </ul>
+        <h2>Tools</h2>
+        <ul>
+            <li data-proficiency="70%">Git</li>
+            <li data-proficiency="55%">Google Cloud</li>
+            
+        </ul>
+    </div>
+    <div class="ascii-art">
+<span class="mountain-peak">      /\             /\        /^^^^^\    /\        /\    /^^^^^^\      /\        /^^^^^\      /\        /\             /\        /^^^^^\    /\        /\    /^^^^^^\      /\        /^^^^^\      /\    </span>
+<span class="mountain-peak">     /@@\           /&&\      /@@@@@@@\  /||\      /%%\  /@@@@@@@@\    /==\      /@@@@@@@\    /##\      /@@\           /&&\      /@@@@@@@\  /||\      /%%\  /@@@@@@@@\    /==\      /@@@@@@@\    /##\   </span>
+<span class="mountain-side">    /@@@@\         /&&&&\    /@@@@@@@@@\/||||\    /%%%%\/@@@@@@@@@@\  /====\    /@@@@@@@@@\  /####\    /@@@@\         /&&&&\    /@@@@@@@@@\/||||\    /%%%%\/@@@@@@@@@@\  /====\    /@@@@@@@@@\  /####\  </span>
+<span class="mountain-side">   /@@@@@@\       /&&&&&&\  /@@@@@@@@@@@\|||||   /%%%%%%\@@@@@@@@@@@@\/======\  /@@@@@@@@@@@\/######\  /@@@@@@\       /&&&&&&\  /@@@@@@@@@@@\|||||   /%%%%%%\@@@@@@@@@@@@\/======\  /@@@@@@@@@@@\/######\</span>
+<span class="mountain-base">  /@@@@@@@@\     /&&&&&&&&\/@@@@@@@@@@@@@\||||  /%%%%%%%%\@@@@@@@@@@@@\========\/@@@@@@@@@@@@@\######  /@@@@@@@@\     /&&&&&&&&\/@@@@@@@@@@@@@\||||  /%%%%%%%%\@@@@@@@@@@@@\========\/@@@@@@@@@@@@@\######</span>
+<span class="mountain-base"> /@@@@@@@@@@\   /&&&&&&&&&&\@@@@@@@@@@@@@@@\|| /%%%%%%%%%%\@@@@@@@@@@@@\=========@@@@@@@@@@@@@@@\#### /@@@@@@@@@@\   /&&&&&&&&&&\@@@@@@@@@@@@@@@\|| /%%%%%%%%%%\@@@@@@@@@@@@\=========@@@@@@@@@@@@@@@\####</span>
+<span class="mountain-base">/@@@@@@@@@@@@\ /&&&&&&&&&&&&\@@@@@@@@@@@@@@@@@\%%%%%%%%%%%%%%%%@@@@@@@@@@\=======@@@@@@@@@@@@@@@@@\##/@@@@@@@@@@@@\ /&&&&&&&&&&&&\@@@@@@@@@@@@@@@@@\%%%%%%%%%%%%%%%%@@@@@@@@@@\=======@@@@@@@@@@@@@@@@@\##</span>
+<span class="mountain-base">@@@@@@@@@@@@@@@&&&&&&&&&&&&&&&@@@@@@@@@@@@@@@@@@%%%%%%%%%%%%%%@@@@@@@@@@@@@======@@@@@@@@@@@@@@@@@@@\@@@@@@@@@@@@@@@&&&&&&&&&&&&&&&@@@@@@@@@@@@@@@@@@%%%%%%%%%%%%%%@@@@@@@@@@@@@======@@@@@@@@@@@@@@@@@@@\</span>
+<span class="mountain-base">@@@@@@@@@@@@@@@@&&&&&&&&&&&&&&@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@&&&&&&&&&&&&&&@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</span>
+<span class="mountain-base">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</span>
+<span class="ground">^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</span>
+    </div>
+    <div class="ascii-sun">
+        ⠀⠀⠀⠀⠀⠀⢀⡤⠂⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+        ⠀⠀⠀⠀⢀⣴⡿⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+        ⠀⠀⢀⣴⣿⡿⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+        ⠀⢀⣾⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+        ⠀⣼⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+        ⢰⣿⣿⣿⣿⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+        ⢸⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+        ⢸⣿⣿⣿⣿⣿⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+        ⢸⣿⣿⣿⣿⣿⣷⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+        ⠀⢿⣿⣿⣿⣿⣿⣿⣆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+        ⠀⠘⣿⣿⣿⣿⣿⣿⣿⣷⣤⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+        ⠀⠀⠘⢿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣦⣤⣀⣀⣀⣀⣀⣀⣠⣤⣴⣶⣾⣿⠋⠀⠀
+        ⠀⠀⠀⠀⠻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⠁⠀⠀⠀
+        ⠀⠀⠀⠀⠀⠈⠙⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠛⠁⠀⠀⠀⠀⠀
+        ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠛⠻⠿⠿⠿⠿⠿⠿⠟⠛⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀
+    </div>
+</body>
+<script>
+    function generateRandomText() {
+        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+{}[]|;:,.<>?';
+        let result = '';
+        for (let i = 0; i < 15000; i++) {
+            result += characters.charAt(Math.floor(Math.random() * characters.length));
+            if (i % 200 === 0) result += '\n';
+        }
+        return result;
+    }
+
+    const backgroundText = document.querySelector('.background-text');
+        backgroundText.textContent = generateRandomText();
+    </script>
+</html>

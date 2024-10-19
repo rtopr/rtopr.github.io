@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reshat Toprak</title>
+    <link href='https://fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet'>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Roboto Mono';
+            background-color: #001f3f;
+            color: #01366b;
+            overflow: hidden;
+        }
+        #content {
+            width: 100vw;
+            height: 100vh;
+            font-size: 14px;
+            line-height: 1.5;
+            overflow: auto;
+            white-space: nowrap;
+            padding: 0 20px 20px 0;
+            box-sizing: border-box;
+        }
+        .clickable {
+            color: white;
+            cursor: pointer;
+        }
+        .associated {
+            transition: color 0.3s ease;
+        }
+        .associated.highlight {
+            color: #045fb9;
+        }
+    </style>
+</head>
+<body>
+    <div id="content"></div>
+    <script>
+        const wordAssociations = {
+            'About Me': ['developer','computer engineer', 'UC Santa Cruz','Reshat Toprak'],
+            'Projects': ['portfolio', 'groupgen'],
+            'Skills': ['python','react.js','html','css','google cloud','c','c++','full stack'],
+            'Github': ['repository', 'open source'],
+            'LinkedIn': ['connect','contact'],
+            'Email':['rtoprak@ucsc.edu']
+        };
+
+        let allWords = [];
+        for (const key in wordAssociations) {
+            allWords = allWords.concat(wordAssociations[key]);
+        }
+
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+
+        shuffleArray(allWords);
+
+        function generateWord() {
+            return allWords[Math.floor(Math.random() * allWords.length)];
+        }
+
+        function handleClick(text) {
+            if (text === 'Email') {
+                window.location.href = 'mailto:rtoprak@ucsc.edu';
+            } else if (text === 'LinkedIn') {
+                window.location.href = 'https://www.linkedin.com/in/reshat-toprak-94b424271/';
+            } else if (text === 'Github') {
+                window.location.href = 'https://github.com/rtopr';
+            } else if (text === 'About Me') {
+                window.location.href = 'about.html';
+            } else if (text === 'Projects') {
+                window.location.href = 'projects.html';
+            } else {
+                alert('You clicked: ' + text);
+            }
+        }
+
+        function insertClickableText(text, index) {
+            const associatedWords = wordAssociations[text].join(',');
+            return `<span class="clickable" onclick="handleClick('${text}')" onmouseover="highlightAssociated('${associatedWords}', true)" onmouseout="highlightAssociated('${associatedWords}', false)" data-associated="${associatedWords}">${text}</span>`;
+        }
+
+        function generateLine(lineLength, specialWord) {
+            let line = [];
+            const specialIndex = 3; // Fixed position as in the original code
+            for (let i = 0; i < lineLength; i++) {
+                if (i === specialIndex) {
+                    line.push(specialWord);
+                } else {
+                    const word = generateWord();
+                    line.push(`<span class="associated" data-word="${word}">${word}</span>`);
+                }
+            }
+            return line.join(' ');
+        }
+
+        const content = document.getElementById('content');
+        const lineLength = 55; // words per line
+        const numLines = 100; // number of lines to generate
+
+        const specialWords = Object.keys(wordAssociations); // Derive special words from wordAssociations
+        let text = '';
+
+        for (let i = 0; i < numLines; i++) {
+            const specialWord = i < specialWords.length ? insertClickableText(specialWords[i], i) : generateWord();
+            text += generateLine(lineLength, specialWord) + '<br>';
+        }
+
+        content.innerHTML = text;
+
+        function highlightAssociated(associatedWords, highlight) {
+            const words = associatedWords.split(',');
+            const allAssociated = document.getElementsByClassName('associated');
+            for (let word of allAssociated) {
+                if (words.includes(word.dataset.word)) {
+                    word.classList.toggle('highlight', highlight);
+                }
+            }
+        }
+    </script>
+</body>
+</html>
