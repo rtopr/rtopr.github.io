@@ -16,7 +16,8 @@
             flex-direction: column;
             align-items: center;
             position: relative;
-            overflow: hidden;
+            overflow-x: hidden;
+            overflow-y: auto;
         }
         .navbar {
             width: 100%;
@@ -46,6 +47,13 @@
             position: relative;
             z-index: 1;
             margin-top: 50px; /* Adjust for navbar height */
+            max-height: calc(100vh - 300px); /* Leave space for mountains */
+            overflow-y: scroll;
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; /* IE and Edge */
+        }
+        .content::-webkit-scrollbar {
+            display: none; /* Chrome, Safari, Opera */
         }
         img {
             max-width: 250px;
@@ -117,7 +125,7 @@
     <div class="background-text"></div>
     <div class="content">
         <h1>Projects</h1>
-        <h2><a href="https://groupgen-39162.uc.r.appspot.com/" target="_blank" style="color: inherit;">GroupGen</a></h2>
+        <h2><a href="https://github.com/rtopr/GroupGen" target="_blank" style="color: inherit;">GroupGen</a></h2>
         <p>
             - A website that allows users to generate groupchats with AI models that are fully customizable and generate images depicting the conversations.<br><br>
             - Features intuitive and engaging UI/UX, with a focus on user experience and accessibility through unique and engaging features, as well as an easily scalable and secure backend infrastructure.<br><br>
